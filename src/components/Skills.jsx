@@ -4,32 +4,32 @@ const SKILL_GROUPS = [
   {
     category: 'Programming Languages',
     icon: '💻',
-    skills: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'Assembly 8086', 'Bash', 'TeX'],
+    skills: ['Golang', 'Java', 'Python', 'JavaScript', 'C', 'C++', 'Bash', 'SQL'],
   },
   {
     category: 'Frameworks & Libraries',
     icon: '🧩',
-    skills: ['React', 'Spring Boot', 'Svelte', 'SvelteKit', 'Node.js', 'NumPy', 'Pandas', 'PyTorch', 'Scikit-Learn'],
+    skills: ['React', 'Node.js', 'HTML5', 'CSS3', 'Scikit-learn', 'Pandas', 'Matplotlib'],
   },
   {
     category: 'Web & Styling',
     icon: '🎨',
-    skills: ['HTML', 'CSS', 'Tailwind CSS'],
+    skills: ['Backend Optimization', 'System Design', 'MLOps', 'NLP'],
   },
   {
     category: 'Databases',
     icon: '🗄️',
-    skills: ['MySQL', 'Oracle', 'PostgreSQL'],
+    skills: ['MongoDB', 'Oracle', 'SQL'],
   },
   {
-    category: 'Formal Methods & Security Tools',
+    category: 'Security & Analysis Tools',
     icon: '🔬',
-    skills: ['ProVerif', 'nuXmv', 'Rocq Prover', 'Picinae', 'Velociraptor'],
+    skills: ['Wireshark', 'Cryptography', 'XSS', 'Buffer Overflow'],
   },
   {
     category: 'Dev Tools & Others',
     icon: '🛠️',
-    skills: ['Git', 'GitHub', 'JavaFX', 'Flex', 'Bison', 'ATMega32', 'OpenGL'],
+    skills: ['Docker', 'Git', 'GitHub', 'VS Code', 'IntelliJ', 'JavaFX', 'OpenGL'],
   },
 ]
 

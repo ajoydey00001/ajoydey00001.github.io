@@ -1,6 +1,6 @@
 const SOCIAL = [
   {
-    href: 'https://github.com/JohoraAva',
+    href: 'https://github.com/ajoydey00001',
     label: 'GitHub',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -9,7 +9,7 @@ const SOCIAL = [
     ),
   },
   {
-    href: 'https://www.linkedin.com/in/fatema-tuj-johora-50000b324/',
+    href: 'https://www.linkedin.com/in/ajoy-dey-5b9634331/',
     label: 'LinkedIn',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -18,16 +18,7 @@ const SOCIAL = [
     ),
   },
   {
-    href: 'https://x.com/JohoraAva',
-    label: 'Twitter / X',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
-    href: 'mailto:Fatema.TujJohora@utdallas.edu',
+    href: 'mailto:ajoydey00001@gmail.com',
     label: 'Email',
     external: false,
     icon: (
@@ -58,40 +49,40 @@ export default function Hero() {
         {/* <div className="mb-7">
           <img
             src="/img/profile_pic.jpg"
-            alt="Fatema Tuj Johora"
+            alt="Ajoy Dey"
             className="w-36 h-36 md:w-44 md:h-44 rounded-full mx-auto object-cover border-[3px] border-white/80 shadow-2xl"
           />
         </div> */}
 
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-1 tracking-tight">
-          Fatema Tuj Johora
+          Ajoy Dey
         </h1>
-        <p className="text-lg text-blue-300 font-medium mb-3">Ava</p>
+        <p className="text-lg text-blue-300 font-medium mb-3">Software Engineer I at Pathao</p>
 
         <p className="text-lg md:text-xl text-slate-200 font-light mb-2">
-          Ph.D. Student in Computer Science
+          BUET CSE Graduate · Part-time M.Sc. Student
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-slate-400 text-sm mb-8">
           <a
-            href="https://www.utdallas.edu/"
+            href="https://pathao.com/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-blue-300 transition-colors"
           >
-            University of Texas at Dallas
+            Pathao
           </a>
           <span className="text-slate-600">·</span>
           <a
-            href="https://sysnets.github.io/"
+            href="https://cse.buet.ac.bd/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-blue-300 transition-colors"
           >
-            SysNetS Lab
+            BUET CSE
           </a>
           <span className="text-slate-600">·</span>
-          <span>Dallas, TX</span>
+          <span>Dhaka, Bangladesh</span>
         </div>
 
         {/* Social icons */}

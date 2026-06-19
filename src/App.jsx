@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 const TABS = [
   { id: 'about',        label: 'About' },
-  { id: 'publications', label: 'Publications' },
+  { id: 'publications', label: 'Research' },
   { id: 'projects',     label: 'Projects' },
   { id: 'cv',           label: 'CV' },
 ]

@@ -38,7 +38,7 @@ export default function CV() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-wrap items-end justify-between gap-4 mb-12">
           <SectionHeader title="Curriculum Vitae" />
-          <a href="https://www.overleaf.com/read/gsrfqrzftbtx#25f9fc" target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
+          <a href="/img/CV.pdf" download className="btn-primary flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
@@ -47,98 +47,81 @@ export default function CV() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Education */}
           <div>
             <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
               Education
             </h3>
 
             <TimelineItem
-              title="Ph.D. in Computer Science"
-              institution="University of Texas at Dallas (UTD)"
-              period="Aug 2025 – Present"
-              link="/utd-Curriculum.html"
-              linkLabel="Graduate Courses"
+              title="M.Sc. in Computer Science & Engineering"
+              institution="Bangladesh University of Engineering & Technology (BUET)"
+              period="Part-time"
             >
-              <p>Cybersecurity track. Working in SysNetS Lab under Prof. Imtiaz Karim on formal analysis of 4G/5G protocols.</p>
+              <p>Continuing graduate study in the CSE department while working as a software engineer.</p>
             </TimelineItem>
 
             <TimelineItem
               title="B.Sc. in Computer Science & Engineering"
               institution="Bangladesh University of Engineering & Technology (BUET)"
-              period="Feb 2020 – Mar 2025"
+              period="Completed"
               link="/BUET-Curriculum.html"
               linkLabel="Curriculum Overview"
             >
-              <p>CGPA: <strong className="text-slate-700">3.94 / 4.00</strong> — Secured 42nd position in the BUET admission test.</p>
+              <p>CGPA: <strong className="text-slate-700">3.89 / 4.00</strong></p>
               <ul className="mt-2 space-y-1 list-none">
                 <li className="flex items-start gap-1.5">
                   <span className="text-blue-500 mt-0.5">▸</span>
-                  <span><strong className="text-slate-600">Dean's List Scholarship</strong>: Jan 2022, Jan 2021</span>
+                  <span><strong className="text-slate-600">BUET Merit List</strong>: 2023</span>
                 </li>
                 <li className="flex items-start gap-1.5">
                   <span className="text-blue-500 mt-0.5">▸</span>
-                  <span><strong className="text-slate-600">University Merit Scholarship</strong>: Jul 2023, Jul 2021</span>
+                  <span><strong className="text-slate-600">Dean's List</strong>: 2021, 2022</span>
                 </li>
               </ul>
             </TimelineItem>
 
             <TimelineItem
               title="Higher Secondary Certificate (HSC)"
-              institution="Ideal School & College, Motijheel, Dhaka"
-              period="Jul 2017 – May 2019"
+              institution="Bangladesh Education Board"
+              period="2019"
             >
-              <p>GPA: <strong className="text-slate-700">5.00 / 5.00</strong> — Talentpool Scholarship, Dhaka Education Board.</p>
+              <p>Board General Scholarship.</p>
             </TimelineItem>
 
             <TimelineItem
               title="Secondary School Certificate (SSC)"
-              institution="BTCL Ideal School & College, Moghbazar, Dhaka"
-              period="Jan 2015 – Jul 2017"
+              institution="Bangladesh Education Board"
+              period="2017"
             >
-              <p>GPA: <strong className="text-slate-700">5.00 / 5.00</strong></p>
+              <p>Board General Scholarship.</p>
             </TimelineItem>
           </div>
 
-          {/* Experience */}
           <div>
             <h3 className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">
               Experience
             </h3>
 
             <TimelineItem
-              title="Graduate Teaching Assistant"
-              institution="University of Texas at Dallas"
-              period="Aug 2025 – Present"
+              title="Software Engineer I"
+              institution="Pathao"
+              period="May 2025 – Present"
+              link="https://pathao.com/"
+              linkLabel="Company Website"
             >
-              <p>
-                Assisting in course instruction, grading assignments, and mentoring students.
-              </p>
-              <p className="mt-2">
-                <strong className="text-slate-600">Fall '25, Spring '26':</strong>{' '}
-                <a
-                  href="https://catalog.utdallas.edu/2025/undergraduate/courses/cs4337"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  CS4337 – Programming Language Paradigms
-                </a>
-              </p>
+              <p>Implemented a new routing algorithm in backend ride service, improving route reliability to <strong className="text-slate-700">90%</strong> for over 100,000 daily rides.</p>
+              <p>Developed and deployed an MLOps pipeline for ride ETA prediction, achieving <strong className="text-slate-700">85%</strong> accuracy in production.</p>
+              <p>Built an autonomous pipeline for daily reporting and analysis, and optimized backend systems for large-scale ride data processing.</p>
             </TimelineItem>
 
             <TimelineItem
-              title="Software Engineer"
-              institution="Synesis IT PLC, Dhaka"
-              period="Apr 2025 – Jul 2025"
+              title="Undergraduate Thesis"
+              institution="BUET CSE"
+              period="Final Year"
+              link="https://github.com/ajoydey00001/CSE-400-Thesis"
+              linkLabel="GitHub Repository"
             >
-              <p>
-                Full Stack Engineer on the{' '}
-                <a href="https://convay.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-                  Convay
-                </a>{' '}
-                video-conferencing platform (SDI team). Resolved bug reports, implemented feature enhancements, and improved system stability using <strong className="text-slate-600">React</strong> (frontend) and <strong className="text-slate-600">Spring Boot</strong> (backend).
-              </p>
+              <p>Developed a sentence-level Bangla spell error corrector using MarianMT, synthetic error generation, and knowledge distillation.</p>
             </TimelineItem>
           </div>
         </div>

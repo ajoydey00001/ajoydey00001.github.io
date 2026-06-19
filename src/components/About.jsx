@@ -1,69 +1,46 @@
 const INTERESTS = [
   {
-    title: 'Protocol Security',
-    desc: 'Analyzing and improving the security of communication protocols, with a focus on cellular 4G/5G network standards.',
-    icon: '🔒',
-  },
-  {
-    title: 'Formal Methods',
-    desc: 'Applying formal verification techniques — model checking, theorem proving, and automata-based reasoning — to prove security properties.',
-    icon: '📐',
-  },
-  {
-    title: 'Cellular Network Security',
-    desc: 'Identifying vulnerabilities in 4G/5G protocols and designing mitigations that strengthen real-world network infrastructure.',
-    icon: '📡',
-  },
-  {
-    title: 'Automata-Based Reasoning',
-    desc: 'Using automata theory to model and analyze protocol state machines for correctness and security guarantees.',
+    title: 'Backend Systems',
+    desc: 'Optimizing production services, routing workflows, and large-scale data processing for reliable user-facing systems.',
     icon: '⚙️',
+  },
+  {
+    title: 'Machine Learning & MLOps',
+    desc: 'Building practical ML pipelines, model deployment workflows, and evaluation loops for production prediction systems.',
+    icon: '🧠',
+  },
+  {
+    title: 'Natural Language Processing',
+    desc: 'Working on Bangla NLP, including sentence-level spell correction with transformer models and synthetic error generation.',
+    icon: '📝',
+  },
+  {
+    title: 'Cybersecurity',
+    desc: 'Exploring applied security through cryptography, protocol concepts, XSS, buffer overflow, and secure systems coursework.',
+    icon: '🔐',
   },
 ]
 
 const SKILL_GROUPS = [
-  { category: 'Programming Languages', icon: '💻', skills: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'Assembly 8086', 'Bash', 'TeX'] },
-  { category: 'Frameworks & Libraries', icon: '🧩', skills: ['React', 'Spring Boot', 'Svelte', 'SvelteKit', 'Node.js', 'NumPy', 'Pandas', 'PyTorch', 'Scikit-Learn'] },
-  { category: 'Web & Styling',          icon: '🎨', skills: ['HTML', 'CSS', 'Tailwind CSS'] },
-  { category: 'Databases',              icon: '🗄️', skills: ['MySQL', 'Oracle', 'PostgreSQL'] },
-  { category: 'Formal Methods & Security Tools', icon: '🔬', skills: ['ProVerif', 'nuXmv', 'Rocq Prover', 'Picinae', 'Velociraptor', 'WireShark', 'Packet Tracer', 'NS-3'] },
-  { category: 'Dev Tools & Others',     icon: '🛠️', skills: ['Git', 'GitHub', 'JavaFX', 'Flex', 'Bison', 'ATMega32', 'OpenGL'] },
+  { category: 'Programming Languages', icon: '💻', skills: ['Golang', 'Java', 'Python', 'JavaScript', 'C', 'C++', 'Bash', 'SQL'] },
+  { category: 'Web & Backend', icon: '🧩', skills: ['React', 'Node.js', 'HTML5', 'CSS3', 'System Design', 'Backend Optimization'] },
+  { category: 'ML & Data Science', icon: '📊', skills: ['Scikit-learn', 'Pandas', 'Matplotlib', 'MLOps', 'NLP'] },
+  { category: 'Databases', icon: '🗄️', skills: ['MongoDB', 'Oracle', 'SQL'] },
+  { category: 'Tools & Platforms', icon: '🛠️', skills: ['Docker', 'Git', 'GitHub', 'VS Code', 'IntelliJ', 'Wireshark'] },
+  { category: 'Academic Areas', icon: '🎓', skills: ['Operating Systems', 'Computer Graphics', 'AI Search', 'Cybersecurity'] },
 ]
 
 const NEWS = {
-  2026: [
-    {month: 'May', text: 'Served as a reviewer for IEEE ransactions on Dependable and Secure Computing(TDSC) [External].' },
-    { month: 'Mar', text: 'Attended the NAIRR Pilot Annual Meeting as a Resource Awardee Representative.' },
-    { month: 'Feb', text: 'Served as a reviewer for IEEE Transactions on Networking (TON) [External].' },
-  ],
   2025: [
-    {
-      month: 'Aug',
-      text: (
-        <>
-          Joined the{' '}
-          <a href="https://sysnets.github.io/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-            SysNetS Lab
-          </a>{' '}
-          at UT Dallas as a Ph.D. student under Prof. Imtiaz Karim.
-        </>
-      ),
-    },
-    {
-      month: 'Apr',
-      text: (
-        <>
-          Joined the{' '}
-          <a href="https://synesisitltd.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-            Synesis IT
-          </a>{' '}
-          as a Software Engineer.
-        </>
-      ),
-    },
-    {month: 'Mar', text: 'Graduated From BUET.'},
+    { month: 'May', text: 'Joined Pathao as Software Engineer I.' },
+    { month: 'May', text: 'Started working on backend optimization, MLOps pipelines, and ride service routing algorithms.' },
   ],
-  
+  2023: [
+    { month: 'Jul', text: 'Recognized on the BUET Merit List for outstanding academic performance.' },
+  ],
+  2022: [
+    { month: 'Jan', text: "Achieved Dean's List academic standing at BUET." },
+  ],
 }
 
 function SectionTitle({ children }) {
@@ -77,55 +54,35 @@ function SectionTitle({ children }) {
 export default function About() {
   return (
     <div className="space-y-12">
-
-      {/* ── About Me ── */}
       <section>
         <SectionTitle>About Me</SectionTitle>
         <div className="space-y-4 text-slate-600 leading-relaxed text-sm">
           <p>
-            Hello! I'm <strong className="text-slate-800">Fatema Tuj Johora</strong>, though I go by{' '}
-            <strong className="text-blue-600">Ava</strong>. I'm a Ph.D. student in Computer Science at the{' '}
-            <a href="https://www.utdallas.edu/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-              University of Texas at Dallas (UTD)
-            </a>
-            , working in the{' '}
-            <a href="https://sysnets.github.io/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-              SysNetS Lab
+            Hello! I'm <strong className="text-slate-800">Ajoy Dey</strong>, a Software Engineer I at{' '}
+            <a href="https://pathao.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+              Pathao
             </a>{' '}
-            (Fall '25–present) under the supervision of Professor{' '}
-            <a href="https://www.imtiazkarim.net/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-              Imtiaz Karim
+            and a part-time M.Sc. student in the{' '}
+            <a href="https://cse.buet.ac.bd/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+              CSE Department at BUET
             </a>
             .
           </p>
           <p>
-            My research focuses on <strong className="text-slate-800">cybersecurity</strong>, using formal
-            methods to make network protocols, especially in cellular 4G/5G systems, safer and more
-            reliable. I aim to develop rigorous methods that bridge theoretical foundations with practical
-            security applications.
+            I completed my B.Sc. in Computer Science and Engineering from Bangladesh University of Engineering
+            and Technology with a CGPA of <strong className="text-slate-800">3.89/4.00</strong>. My interests
+            span computer systems, cybersecurity, machine learning, natural language processing, and system design.
           </p>
           <p>
-            I completed my B.Sc. in CSE from the{' '}
-            <a href="https://cse.buet.ac.bd/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-              CSE Department of BUET
-            </a>{' '}
-            with a CGPA of 3.94/4.00. Prior to my Ph.D., I worked as a Software Engineer at{' '}
-            <a href="https://synesisitltd.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-              Synesis IT
-            </a>
-            , contributing to the{' '}
-            <a href="https://convay.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-              Convay
-            </a>{' '}
-            video conferencing platform as a Full Stack Engineer. I currently serve as a Graduate Teaching
-            Assistant at UTD.
+            At Pathao, I work on backend optimization, MLOps pipelines, and ride service routing algorithms.
+            I enjoy solving complex engineering problems and building scalable systems that can hold up in
+            production.
           </p>
         </div>
       </section>
 
-      {/* ── Research Interests ── */}
       <section>
-        <SectionTitle>Research Interests</SectionTitle>
+        <SectionTitle>Interests</SectionTitle>
         <div className="grid sm:grid-cols-2 gap-4">
           {INTERESTS.map(({ title, desc, icon }) => (
             <div key={title} className="card p-5 flex gap-3">
@@ -139,7 +96,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Technical Skills ── */}
       <section>
         <SectionTitle>Technical Skills</SectionTitle>
         <div className="grid sm:grid-cols-2 gap-4">
@@ -159,7 +115,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Recent News ── */}
       <section>
         <SectionTitle>Recent News</SectionTitle>
         <div className="grid sm:grid-cols-2 gap-4">
@@ -182,7 +137,6 @@ export default function About() {
             ))}
         </div>
       </section>
-
     </div>
   )
 }

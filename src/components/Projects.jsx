@@ -3,76 +3,76 @@ import SectionHeader from './SectionHeader'
 
 const PROJECTS = [
   {
-    title: 'Encrypted File System',
+    title: 'Sentence-level Bangla Spell Error Corrector',
     description:
-      'Designed a simulated version of Encrypted File System (EFS) using AES encryption. Implemented file encryption/decryption, key management, and access control to ensure data confidentiality and integrity.',
-    tags: ['Network Security', 'Cryptography', 'Python'],
-    link: 'https://github.com/JohoraAva/CS6324-Information-Security/tree/main/Assignment-01',
-    course: 'CS 6324',
+      'Undergraduate thesis using a seq2seq transformer model fine-tuned on 3.8M sentence pairs, with synthetic Bengali error generation and knowledge distillation.',
+    tags: ['NLP', 'Transformers', 'Bangla', 'Python'],
+    link: 'https://github.com/ajoydey00001/CSE-400-Thesis',
+    course: 'Thesis',
   },
   {
-    title: 'Secure Relay-Based Chat System',
+    title: 'Handwritten Bangla Word Recognition',
     description:
-      'Designed a relay-based communication system ensuring confidentiality, integrity, and authentication. Addressed replay attacks, message tampering, and forward secrecy using a keyed-hash-based encryption scheme.',
-    tags: ['Network Security', 'Cryptography', 'Python'],
-    link: 'https://github.com/JohoraAva/CS-6349-Network-Security',
-    course: 'CS 6349',
-  },
-  {
-    title: 'PixelShare',
-    description:
-      'A Svelte-based media-sharing platform with group uploads and efficient tag-based search powered by the CLIP model. Three-person team project.',
-    tags: ['Svelte', 'SvelteKit', 'Machine Learning'],
-    link: 'https://github.com/risenfromashes/pixelshare',
-    course: 'CSE 408',
-  },
-  {
-    title: 'Kidney Anomaly Detection',
-    description:
-      'Deep learning system to detect kidney anomalies by merging predictions from multiple CNN models for enhanced accuracy.',
-    tags: ['PyTorch', 'Deep Learning', 'Computer Vision'],
-    link: 'https://github.com/JohoraAva/ML-Project',
+      'EfficientNet-B0 based model for Bangla word recognition on the Zilla-64 dataset, achieving 93.3% accuracy.',
+    tags: ['Machine Learning', 'Computer Vision', 'Python'],
+    link: 'https://github.com/ajoydey00001/CSE-472',
     course: 'CSE 472',
   },
   {
-    title: 'Compiler Design',
+    title: 'ML Course Projects',
     description:
-      'Partial C compiler using C++. Utilized Lex and Yacc for lexical analysis and parsing, with a backend targeting Intel 8086 assembly.',
-    tags: ['C++', 'Lex', 'Yacc', 'Assembly 8086'],
-    link: 'https://github.com/JohoraAva/CSE-310-Compiler-Sessional',
-    course: 'CSE 310',
+      'Implemented data preprocessing, logistic regression with bagging and stacking, neural networks, PCA, and EM algorithm assignments.',
+    tags: ['Machine Learning', 'Scikit-learn', 'Python'],
+    link: 'https://github.com/ajoydey00001/CSE-472',
+    course: 'CSE 472',
   },
   {
-    title: 'Securus Domas',
+    title: 'Food Bear',
     description:
-      'Automated Home & Security system with Bluetooth-controlled access, gas/flame alerts via Telegram, intruder detection, and automated subsystems.',
-    tags: ['ATMega32', 'IoT', 'Embedded Systems'],
-    link: 'https://youtu.be/O2aVEYXrsXY?si=5vfjqRPYSswEIqL-',
-    course: 'CSE 316',
-  },
-  {
-    title: "Sherlock's Eye",
-    description:
-      'A Case Management System with real-time tracking and secure communication, built using Node.js and HTML/CSS.',
-    tags: ['Node.js', 'HTML/CSS'],
-    link: 'https://github.com/JohoraAva/Sherlocks-Eye-Project-2-2',
-    course: 'CSE 216',
+      'MERN stack food delivery platform with real-time order tracking, restaurant analytics, and Google Maps integration.',
+    tags: ['MERN', 'React', 'Node.js', 'MongoDB'],
+    link: 'https://github.com/ajoydey00001',
+    course: 'Software Project',
   },
   {
     title: 'Football Player Database System',
     description:
-      'Manages players, clubs, and transfers using JavaFX and a server-client model. Solo project.',
-    tags: ['Java', 'JavaFX', 'Socket-Programming'],
-    link: 'https://github.com/JohoraAva/CSE-108-Object-Oriented-Programming-Language-/tree/main/Term%20Project-2/1905022',
+      'Java and JavaFX server-client application for managing football players, clubs, and transfers.',
+    tags: ['Java', 'JavaFX', 'Socket Programming'],
+    link: 'https://github.com/ajoydey00001',
     course: 'CSE 108',
   },
   {
-    title: 'Velociraptor Analysis',
+    title: 'AI Offlines',
     description:
-      'In-depth exploration of the Velociraptor digital forensics and incident response tool, with comprehensive findings report.',
-    tags: ['Security', 'Velociraptor'],
-    link: 'https://github.com/JohoraAva/CSE-406-Computer-Security-Sessional/tree/main/Velociraptor(Project%20Report)',
-    course: 'CSE 406',
+      'Implemented n-Puzzle search, adversarial search, GRASP optimization, and decision tree learning assignments.',
+    tags: ['Artificial Intelligence', 'Search', 'Optimization'],
+    link: 'https://github.com/ajoydey00001',
+    course: 'AI',
+  },
+  {
+    title: 'Cybersecurity Projects',
+    description:
+      'Worked on Elliptic Curve Diffie-Hellman key exchange, XSS demonstrations, and buffer overflow attack demonstrations.',
+    tags: ['Cybersecurity', 'Cryptography', 'C'],
+    link: 'https://github.com/ajoydey00001',
+    course: 'Security',
+  },
+  {
+    title: 'Computer Graphics Assignments',
+    description:
+      'OpenGL assignments covering raster graphics pipeline concepts, ray tracing, and illumination.',
+    tags: ['OpenGL', 'C++', 'Graphics'],
+    link: 'https://github.com/ajoydey00001',
+    course: 'Graphics',
+  },
+  {
+    title: 'Operating Systems Assignments',
+    description:
+      'Shell scripting, Xv6 system calls, scheduling, and inter-process communication assignments.',
+    tags: ['Operating Systems', 'Shell', 'Xv6'],
+    link: 'https://github.com/ajoydey00001',
+    course: 'OS',
   },
 ]
 

@@ -1,6 +1,6 @@
 const SOCIALS = [
   {
-    href: 'https://github.com/JohoraAva',
+    href: 'https://github.com/ajoydey00001',
     label: 'GitHub',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -9,7 +9,7 @@ const SOCIALS = [
     ),
   },
   {
-    href: 'https://www.linkedin.com/in/fatema-tuj-johora-50000b324/',
+    href: 'https://www.linkedin.com/in/ajoy-dey-5b9634331/',
     label: 'LinkedIn',
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
@@ -18,16 +18,7 @@ const SOCIALS = [
     ),
   },
   {
-    href: 'https://x.com/JohoraAva',
-    label: 'Twitter / X',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-  {
-    href: 'mailto:Fatema.TujJohora@utdallas.edu',
+    href: 'mailto:ajoydey00001@gmail.com',
     label: 'Email',
     external: false,
     icon: (
@@ -39,27 +30,26 @@ const SOCIALS = [
 ]
 
 const INFO_ITEMS = [
-  { icon: '📍', text: 'Dallas, Texas' },
+  { icon: '📍', text: 'Dhaka, Bangladesh' },
   {
     icon: '🎓',
     text: (
       <>
-        Advised by{' '}
-        <a href="https://www.imtiazkarim.net/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
-          Prof. Imtiaz Karim
+        Software Engineer I at{' '}
+        <a href="https://pathao.com/" target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
+          Pathao
         </a>
       </>
     ),
   },
-  { icon: '🔬', text: 'Cybersecurity · Formal Methods · 5G Security . IoT Security' },
-  { icon: '🧠', text: 'ENTJ-T' },
-  // { icon: '🇧🇩', text: 'Bangladesh' },
-  { icon: '✈️', text: 'Traveling · Photography · K-Dramas' },
+  { icon: '🔬', text: 'Backend Systems · MLOps · NLP · Cybersecurity' },
+  { icon: '🎓', text: 'Part-time M.Sc. student in CSE at BUET' },
+  { icon: '⚡', text: 'Building scalable systems and solving complex problems' },
   {
     icon: '📧',
     text: (
-      <a href="mailto:Fatema.TujJohora@utdallas.edu" className="text-blue-600 hover:underline break-all">
-        Fatema.TujJohora@utdallas.edu
+      <a href="mailto:ajoydey00001@gmail.com" className="text-blue-600 hover:underline break-all">
+        ajoydey00001@gmail.com
       </a>
     ),
   },
@@ -73,7 +63,7 @@ export default function Sidebar() {
       <div className="relative z-10 mb-[-2rem]">
         <img
           src="/img/profile_pic.jpg"
-          alt="Fatema Tuj Johora"
+          alt="Ajoy Dey"
           className="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-white ring-4 ring-blue-100"
         />
       </div>
@@ -82,13 +72,13 @@ export default function Sidebar() {
       <div className="w-full bg-slate-50 border border-slate-200 rounded-2xl pt-14 pb-6 px-5 flex flex-col items-center gap-4 text-center">
 
         <div className="space-y-0.5">
-          <h2 className="text-base font-bold text-slate-800 leading-snug">Fatema Tuj Johora</h2>
-          <p className="text-blue-600 font-semibold text-sm">Ava 🇧🇩</p>
-          <p className="text-slate-500 text-xs mt-1">Ph.D. Student · Computer Science</p>
+          <h2 className="text-base font-bold text-slate-800 leading-snug">Ajoy Dey</h2>
+          <p className="text-blue-600 font-semibold text-sm">Software Engineer 🇧🇩</p>
+          <p className="text-slate-500 text-xs mt-1">Software Engineer I · Pathao</p>
           <p className="text-slate-400 text-xs">
-            <a href="https://www.utdallas.edu/" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">UT Dallas</a>
+            <a href="https://pathao.com/" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">Pathao</a>
             {' · '}
-            <a href="https://sysnets.github.io/" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">SysNetS Lab</a>
+            <a href="https://cse.buet.ac.bd/" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">BUET CSE</a>
           </p>
         </div>
 
@@ -118,7 +108,7 @@ export default function Sidebar() {
           ))}
         </div>
 
-        <a href="https://www.overleaf.com/read/gsrfqrzftbtx#25f9fc" target="_blank" rel="noreferrer" className="btn-primary text-xs px-4 py-2 w-full">
+        <a href="/img/CV.pdf" download className="btn-primary text-xs px-4 py-2 w-full">
           Download CV
         </a>
       </div>

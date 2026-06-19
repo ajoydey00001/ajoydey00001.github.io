@@ -2,14 +2,14 @@ import SectionHeader from './SectionHeader'
 
 const NEWS = [
   {
-    date: 'Mar 2026',
-    text: 'Attended the NAIRR Pilot Annual Meeting as a Resource Awardee Representative.',
-    tag: 'Event',
+    date: 'May 2025',
+    text: 'Joined Pathao as Software Engineer I.',
+    tag: 'Milestone',
   },
   {
-    date: 'Aug 2025',
-    text: 'Joined the SysNetS Lab at UT Dallas as a Ph.D. student under Prof. Imtiaz Karim.',
-    tag: 'Milestone',
+    date: '2023',
+    text: 'Recognized on the BUET Merit List for outstanding academic performance.',
+    tag: 'Award',
   },
 ]
 

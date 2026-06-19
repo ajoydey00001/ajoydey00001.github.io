@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUET Curriculum — Fatema Tuj Johora</title>
+  <link rel="icon" href="/img/chick-logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #f8fafc; color: #1e293b; min-height: 100vh; }
+
+    .topbar {
+      background: #fff; border-bottom: 1px solid #e2e8f0;
+      padding: 0 1.5rem; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 10;
+    }
+    .topbar-brand { display: flex; align-items: center; gap: 0.625rem; text-decoration: none; }
+    .topbar-brand img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+    .topbar-brand span { font-weight: 600; font-size: 0.875rem; color: #1e293b; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.8125rem; font-weight: 500; color: #2563eb; text-decoration: none; }
+    .back-link:hover { text-decoration: underline; }
+
+    .page-header { background: linear-gradient(135deg, #0f172a 0%, #3c055c 0%, #ba61d5 100%); color: #fff; padding: 2.5rem 1.5rem; }
+    .page-header-inner { max-width: 960px; margin: 0 auto; }
+    .page-header h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 0.375rem; }
+    .page-header p { font-size: 0.9375rem; opacity: 0.8; margin-bottom: 0.25rem; }
+    .page-header .cgpa { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.75rem; background: rgba(255,255,255,0.12); border-radius: 999px; padding: 0.25rem 0.875rem; font-size: 0.875rem; font-weight: 600; }
+
+    /* Level tabs */
+    .level-nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0 1.5rem; overflow-x: auto; display: flex; gap: 0; }
+    .level-tab { padding: 0.875rem 1.25rem; font-size: 0.8125rem; font-weight: 500; color: #64748b; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; background: none; border-left: none; border-right: none; border-top: none; font-family: inherit; transition: color 0.15s, border-color 0.15s; }
+    .level-tab:hover { color: #2563eb; }
+    .level-tab.active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+
+    .content { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+    /* Level panels */
+    .level-panel { display: none; }
+    .level-panel.active { display: block; }
+
+    /* Term card */
+    .term {
+      background: #fff; border-radius: 12px; border: 1px solid #e2e8f0;
+      overflow: hidden; margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    }
+    .term-header {
+      padding: 1rem 1.25rem; border-bottom: 1px solid #e2e8f0;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #f8fafc;
+    }
+    .term-header-left { display: flex; align-items: center; gap: 0.75rem; }
+    .term-badge { font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 999px; }
+    .badge-l1 { background: #c5a5d8; color: #3c045c; }
+    .badge-l2 { background: #d4bae2; color: #3c045c; }
+    .badge-l3 { background: #e1cfec; color: #3c045c; }
+    .badge-l4 { background: #e6d7f0; color: #3c045c; }
+    .term-header h2 { font-size: 0.9375rem; font-weight: 600; color: #0f172a; }
+    .term-credits { font-size: 0.8125rem; font-weight: 600; color: #64748b; background: #f1f5f9; border-radius: 999px; padding: 0.2rem 0.65rem; }
+
+    table { width: 100%; border-collapse: collapse; }
+    thead th { background: #f1f5f9; font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: #64748b; padding: 0.625rem 1rem; text-align: left; }
+    thead th.center { text-align: center; }
+    tbody tr { border-top: 1px solid #f1f5f9; transition: background 0.15s; }
+    tbody tr:hover { background: #f8fafc; }
+    tbody td { padding: 0.75rem 1rem; font-size: 0.875rem; color: #334155; vertical-align: middle; }
+    .course-code { font-family: 'Courier New', monospace; font-size: 0.8125rem; font-weight: 600; color: #1e40af; white-space: nowrap; }
+    .course-link { color: #1e293b; text-decoration: none; font-weight: 500; }
+    .course-link:hover { color: #2563eb; text-decoration: underline; }
+    .center { text-align: center; }
+    .credit { text-align: center; font-weight: 600; color: #0f172a; }
+    .resource-link { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.8125rem; color: #2563eb; text-decoration: none; font-weight: 500; }
+    .resource-link:hover { text-decoration: underline; }
+    .total-row td { padding: 0.75rem 1rem; font-size: 0.875rem; background: #f1f5f9; font-weight: 600; color: #0f172a; border-top: 2px solid #e2e8f0; }
+    .total-row td.center { text-align: center; }
+
+    @media (max-width: 640px) {
+      .col-outline, .col-resource { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="/" class="topbar-brand">
+      <img src="/img/chick-logo.png" alt="JA" />
+      <span>Johora Ava</span>
+    </a>
+    <a href="/#cv" class="back-link">← Back to CV</a>
+  </header>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <h1>BUET Curriculum</h1>
+      <p>Bangladesh University of Engineering &amp; Technology</p>
+      <p>B.Sc. in Computer Science &amp; Engineering &nbsp;·&nbsp; Feb 2020 – Mar 2025</p>
+      <div class="cgpa">🏅 CGPA: 3.94 / 4.00</div>
+    </div>
+  </div>
+
+  <!-- Level navigation tabs -->
+  <nav class="level-nav">
+    <button class="level-tab active" onclick="showLevel('l1', this)">Level 1</button>
+    <button class="level-tab" onclick="showLevel('l2', this)">Level 2</button>
+    <button class="level-tab" onclick="showLevel('l3', this)">Level 3</button>
+    <button class="level-tab" onclick="showLevel('l4', this)">Level 4</button>
+  </nav>
+
+  <main class="content">
+
+    <!-- ════════════ LEVEL 1 ════════════ -->
+    <div id="l1" class="level-panel active">
+
+      <!-- 1-1 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l1">Term 1</span>
+            <h2>Level 1 — Term 1</h2>
+          </div>
+          <span class="term-credits">21.5 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 101</td><td>Structured Programming Language</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE101" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1a6MscBuO0PS2zKlpvGDqyN98_7QmhXOb?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 102</td><td>Structured Programming Language Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE102" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/15Q222wm_8E2a49Y384JmM2Akqm4ZM457?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">EEE 163</td><td>Introduction to Electrical Engineering</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/EEE163" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1G8rU9VUM3XzWRoGTUtGjUnsmBqjsmAT1?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">EEE 164</td><td>Introduction to Electrical Engineering Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/EEE164" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1-HoKdUo3tRpGYknNnoRtTHd08tKbDv-z?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">MATH 145</td><td>Differential Calculus, Integral Calculus, and Coordinate Geometry</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/MATH145" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/13PMow5yx5N7dW6k6M-XWikHmvzhVn1gZ?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">ME 165</td><td>Basic Mechanical Engineering</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/ME165" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/103V_tHK5nghKIexJb65BZd1PBMpaBE2I?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">ME 174</td><td>Mechanical Engineering Drawing and CAD</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/MATH174" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1PZbBYk45kQlSj7EH-BDlAu50lF8k_suZ?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">PHY 102</td><td>Physics Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/PHY102" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/13BrSzMSfuHT-LfzjUX60VkbFS8obLi70?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">PHY 109</td><td>Heat and Thermodynamics, Electricity and Magnetism, Waves and Oscillations</td><td class="credit">4.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/PHY109" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1W41RYe_nNAE_WhxbVkZwQY-yCn9IT9c9?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">22.00</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 1-2 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l1">Term 2</span>
+            <h2>Level 1 — Term 2</h2>
+          </div>
+          <span class="term-credits">21.5 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CHEM 113</td><td>Chemistry</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CHEM113" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1DzYM8Z63Lywg-stRmDfNMpLESAg-MZ1d?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CHEM 114</td><td>Inorganic Quantitative Analysis</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CHEM114" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/18zoxJbCktoIh5mnRYjyPPz43ag8C7nr7?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 103</td><td>Discrete Mathematics</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE103" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/13UGj3Jt0jh_IYLnSV5qFY-M3WP0WrvkC?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 107</td><td>Object Oriented Programming Language</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE107" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1n-HRFyjPQaTsGh40CvOfio9Ev_5lOPON?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 108</td><td>Object Oriented Programming Language Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE108" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1JQOWEmMa_1TU5WP5HJJfQeCiCRcwjsym?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">HUM 172</td><td>Developing English Skills Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/HUM172" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1s3jQU8m-oj6ii7u6H5G2KATEXdPH3lfA?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">HUM 183</td><td>English</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/HUM183" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1p0jj0aWKDG-TNSNoZzSsUYX0CwyW4Jy-?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">MATH 147</td><td>ODE, PDE and Vector Calculus</td><td class="credit">4.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/MATH147" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1oeNfnW9FE1o4u9JRCWsSfMJyiBq8AfR8?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">20.50</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /l1 -->
+
+    <!-- ════════════ LEVEL 2 ════════════ -->
+    <div id="l2" class="level-panel">
+
+      <!-- 2-1 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l2">Term 1</span>
+            <h2>Level 2 — Term 1</h2>
+          </div>
+          <span class="term-credits">19.5 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 203</td><td>Data Structures and Algorithms I</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE203" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1Nm5BAFjpcTbS3svTrUMkHamtaN3zGx4J?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 204</td><td>Data Structures and Algorithms I Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE204" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1QahsmyjJSXm7s1SzEO7JrypYavVeVPiW?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 205</td><td>Digital Logic Design</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE205" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1WHxucTkewauh9trx7pPzUC1asvhF4EAe?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 206</td><td>Digital Logic Design Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE206" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1upVeUvtbMO0AfYNR4EuN6b6tsw4m95o4?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 218</td><td>Numerical Methods</td><td class="credit">2.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE218" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1ZC5v7SKukiG1_ejjsrVilLA0w8UXXjfW?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">EEE 263</td><td>Electronic Circuits</td><td class="credit">4.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/EEE263" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1TbVqG-8UCWcb9vMb9cHK1YpaJdC3Pfj0?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">EEE 264</td><td>Electronic Circuits Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/EEE264" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1q8HyH6sG-iiNqFzfVqFnFUGRNYn_Xdrl?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">MATH 245</td><td>Complex Variable and Statistics</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/MATH245" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/13ooxdd76562PvBO3k1Mzzu6gjmqzrdm3?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">19.50</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2-2 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l2">Term 2</span>
+            <h2>Level 2 — Term 2</h2>
+          </div>
+          <span class="term-credits">19.0 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 207</td><td>Data Structures and Algorithms II</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE207" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1LivgZRkQSLFexN74Nm5zfI7jHVRU-mP1?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 208</td><td>Data Structures and Algorithms II Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE208" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1gfY5DJukGl8COsD4tUrr21rvsg65on6l?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 211</td><td>Theory of Computation</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE211" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1B4Dma2KFAZ2Zfed_TLvEpEmWZtCzB1hG?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 215</td><td>Database</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE215" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1fFplGvnGMvlc8rGxfkPduwhkp_nz9GRE?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 216</td><td>Database Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE216" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1QVCNolk9PA4Z-t1YG725Ou1Um9y5YKQN?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">EEE 269</td><td>Electrical Drives and Instrumentation</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/EEE269" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1zBqM6Ipw6pWaJ-Ih0q-eFvuWvYIR8qMu?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">EEE 270</td><td>Electrical Drives and Instrumentation Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/EEE270" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1J-gfoeYtJ8SHCXDdLG7ou_CTwsiANiUI?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">MATH 247</td><td>Linear Algebra, Laplace Transformation and Fourier Analysis</td><td class="credit">4.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/MATH247" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1Ilxe4MTMeJIz8J2t-TMkZS2RIJCTNBHN?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">20.50</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /l2 -->
+
+    <!-- ════════════ LEVEL 3 ════════════ -->
+    <div id="l3" class="level-panel">
+
+      <!-- 3-1 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l3">Term 1</span>
+            <h2>Level 3 — Term 1</h2>
+          </div>
+          <span class="term-credits">20.25 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 300</td><td>Technical Writing and Presentation</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE300" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/10WQ5cBSkghJbBTCniBOrA2TaIH9Wotbl?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 305</td><td>Computer Architecture</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE305" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1CWHJ7B_Z2EvB8OnbUbyUklY0gdvqEYqC?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 306</td><td>Computer Architecture Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE306" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1jEIU4zsdThM1pPx7eEw8tW4RjA0QbEmn?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 307</td><td>Software Engineering</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE307" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1CWPAuDGgTfgN-44TOQkMorjaX_82SWMS?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 308</td><td>Software Engineering Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE308" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1DoGdZTXbbFLfWVmAlmtrlWn8rkbTFtav?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 309</td><td>Compiler</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE309" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1-qvAbXsqG4PTrZtGrAEyK-CQG_Xd_9aF?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 310</td><td>Compiler Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE310" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1CDrOEzJYGNZisKzmB7stfNJZgsFlT1Na?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 311</td><td>Data Communication</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE311" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1WHEmveAuTLq2iexWem0zCh0do3yBlAzj?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 315</td><td>Microprocessors, Microcontrollers, and Embedded Systems</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE315" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1gLHF-YDo2IlcPNRvAM1MYVe06DVtOPEg?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 316</td><td>Microprocessors, Microcontrollers, and Embedded Systems Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE316" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/134eayOs-0NfUSjXdK88xdhhzJEovpiqg?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">19.50</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 3-2 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l3">Term 2</span>
+            <h2>Level 3 — Term 2</h2>
+          </div>
+          <span class="term-credits">19.5 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 301</td><td>Mathematical Analysis for Computer Science</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE301" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1zGo9jIGHRAUEsWBgHl_Lo3UumaEJfnNu?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 313</td><td>Operating System</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE313" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1Dpuza7HdCoPkxHOtMB8_Q8w9qAuO5TEW?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 314</td><td>Operating System Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE314" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1-uYfYgV6tN0P3eQm2Da10YObSf1II1op?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 317</td><td>Artificial Intelligence</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE317" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1uJGWzvMMeXEMvzBj8dmi_ZaX2A0z-O-K?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 318</td><td>Artificial Intelligence Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE318" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1xaMtEVuG8Gd8h2k7v2RDbCiqSw3DktoR?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 321</td><td>Computer Networks</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE321" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1kYlkdCgB69aDbfNMKHKyFsF9qeeuDf_L?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 322</td><td>Computer Networks Sessional</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE322" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1hT_D2aikTAijbepH0t9iS4vRCZVps5A-?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 325</td><td>Information System Design</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE325" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1OtFzOfUCKDUQhKF-s0-knbJVnZHV4ZeL?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 326</td><td>Information System Design Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE326" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1SxjHcFtVqLx6tjYfDfDPdJaXy1KAW7ag?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">19.50</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /l3 -->
+
+    <!-- ════════════ LEVEL 4 ════════════ -->
+    <div id="l4" class="level-panel">
+
+      <!-- 4-1 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l4">Term 1</span>
+            <h2>Level 4 — Term 1</h2>
+          </div>
+          <span class="term-credits">18.0 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 405</td><td>Computer Security</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE405" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1h0DTVz_nQWhttWLGZ_FJfaK1ZhSutrg_?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 406</td><td>Computer Security Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE406" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1VUHzyxb9O1mMGm_x8NKStZlx7guCKLXi?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 408</td><td>Software Development</td><td class="credit">1.50</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE408" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1pjkVgw0CL55Gd_EDHxQ_yGbo8LYWvRyh?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 409</td><td>Computer Graphics</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE409" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1QyVEn8gqzuAJL73Q7jiVK3zmSpzSF5-q?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 410</td><td>Computer Graphics Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE410" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1ajXtGylQON3s94hiJNU98HBM_RZMmlzu?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 423</td><td>Fault Tolerant Systems</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE423" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1hEQgA16Q0ofVkJZG9F_tENYiLklz_O9u?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 463</td><td>Introduction to Bioinformatics</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE463" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1M-G9NUGKWKbkTgWoutmjueWcaSqnA0y7?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">HUM 475</td><td>Engineering Economics</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/HUM475" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1gyvSoFxIhkoidXXJBjJ8tIFwT5n-IJs8?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">18.00</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 4-2 -->
+      <div class="term">
+        <div class="term-header">
+          <div class="term-header-left">
+            <span class="term-badge badge-l4">Term 2</span>
+            <h2>Level 4 — Term 2</h2>
+          </div>
+          <span class="term-credits">17.5 cr</span>
+        </div>
+        <table>
+          <thead><tr><th style="width:100px">Course No</th><th>Course Title</th><th class="center" style="width:75px">Credits</th><th class="center col-outline" style="width:85px">Outline</th><th class="center col-resource" style="width:85px">Resources</th></tr></thead>
+          <tbody>
+            <tr><td class="course-code">CSE 400</td><td>Project and Thesis</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE400" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1YBGFXKfk7J5evhQW5sy1ywBmDtwzptwG?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 411</td><td>Simulation and Modeling</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE411" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1Ew_lT6SKy3MuQNghcSd7WJnRzcsYIekQ?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 412</td><td>Simulation and Modeling Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE412" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1TcpThouJR4fyG1UaFuJemzb6EIyMGkcj?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 471</td><td>Machine Learning</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE471" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1f6ZOcuyUqbF6XHsvmiC39K-JtGoCpxQt?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">CSE 472</td><td>Machine Learning Sessional</td><td class="credit">0.75</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/CSE472" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1ZFt9Xo-5rYFbopJlyvO2Sgrn0GRdfJsC?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">HUM 473</td><td>Financial, Cost, and Managerial Accounting</td><td class="credit">2.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/HUM473" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1fIZ2cmzWKly9WF51MTRiSAkGHUKJ3jLL?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">HUM 477</td><td>Sociology for Science and Technology</td><td class="credit">2.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/HUM477" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/1-YZL2PZeNHDxjeJp0YVhoMmHkue0MB6a?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr><td class="course-code">IPE 493</td><td>Industrial Management</td><td class="credit">3.00</td><td class="center col-outline"><a class="resource-link" href="https://cse.buet.ac.bd/web/studies/course_detail/IPE493" target="_blank" rel="noreferrer">Outline</a></td><td class="center col-resource"><a class="resource-link" href="https://drive.google.com/drive/folders/15A0LXm9Krefm_P20XmpQdPEAUxAKYGwT?usp=drive_link" target="_blank" rel="noreferrer">Drive</a></td></tr>
+            <tr class="total-row"><td colspan="2">Total Credits</td><td class="center">17.50</td><td class="col-outline"></td><td class="col-resource"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /l4 -->
+
+  </main>
+
+  <script>
+    function showLevel(id, btn) {
+      document.querySelectorAll('.level-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.level-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@ Welcome to my GitHub profile! I'm a passionate Software Engineer and Computer Sc
 
 ## 🚀 About Me
 
-- 💼 **Current Role**: Software Engineer I at [Pathao](https://pathao.com/)
+- 💼 **Current Role**: Software Engineer I at [Pathao](https://pathao.com/) , MSC (part time ) in CSE department at  [BUET](https://cse.buet.ac.bd/)
 - 🎓 **Education**: B.Sc. in Computer Science and Engineering from BUET (CGPA: 3.89/4.0)
 - 🔭 I'm currently working on **backend optimization, MLOps pipelines, and ride service routing algorithms**
 - 🌱 I'm passionate about **Machine Learning, NLP, Cybersecurity, and System Design**

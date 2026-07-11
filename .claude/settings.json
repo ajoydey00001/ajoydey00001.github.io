@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import markdown; print\\('ok'\\)\")",
+      "Bash(python3 -m venv /private/tmp/claude-501/-Users-pathaoltd-Documents-Research-self-project-ajoydey00001-github-io/a06a722d-125e-4ff2-bc66-86b3b33335a9/scratchpad/pdfenv --without-pip)",
+      "Bash(/private/tmp/claude-501/-Users-pathaoltd-Documents-Research-self-project-ajoydey00001-github-io/a06a722d-125e-4ff2-bc66-86b3b33335a9/scratchpad/pdfenv/bin/python3 -m ensurepip --upgrade)",
+      "Bash(/private/tmp/claude-501/-Users-pathaoltd-Documents-Research-self-project-ajoydey00001-github-io/a06a722d-125e-4ff2-bc66-86b3b33335a9/scratchpad/pdfenv/bin/pip install *)",
+      "Bash(/private/tmp/claude-501/-Users-pathaoltd-Documents-Research-self-project-ajoydey00001-github-io/a06a722d-125e-4ff2-bc66-86b3b33335a9/scratchpad/pdfenv/bin/pip3 install *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Edit(docs/*)",
+      "Write(docs/*)"
+    ],
+    "ask": [
+      "Edit(.claude/settings.json)",
+      "Write(.claude/settings.json)",
+      "Edit(.claude/settings.local.json)",
+      "Write(.claude/settings.local.json)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | { read -r f; case \"$f\" in */src/*) (cd \"${CLAUDE_PROJECT_DIR:-.}\" && npm run docs --silent) ;; esac; } || true",
+            "timeout": 30,
+            "statusMessage": "Regenerating docs/ from src/..."
+          }
+        ]
+      }
+    ]
+  }
+}

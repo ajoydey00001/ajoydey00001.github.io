@@ -1,3 +1,7 @@
+/**
+ * Persistent left sidebar shown alongside the tab content in App.jsx:
+ * profile photo, quick info, social links, and a CV download button.
+ */
 const SOCIALS = [
   {
     href: 'https://github.com/ajoydey00001',

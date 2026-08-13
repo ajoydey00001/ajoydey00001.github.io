@@ -1,39 +1,43 @@
 const INTERESTS = [
   {
-    title: 'Backend Systems',
-    desc: 'Optimizing production services, routing workflows, and large-scale data processing for reliable user-facing systems.',
+    title: 'AI & LLM Security',
+    desc: 'Trust, provenance, and attribution integrity in frontier large language models — currently studying source attribution bias with Prof. Lin Tan at Purdue.',
+    icon: '🔐',
+  },
+  {
+    title: 'ML for Security',
+    desc: 'Learning-based threat and anomaly detection on large-scale system data, including fraud detection models running in production over live ride and delivery traffic.',
+    icon: '🛡️',
+  },
+  {
+    title: 'Systems & Network Security',
+    desc: 'Low-level systems and protocol security: kernel internals and scheduling in xv6, congestion control and link-layer analysis in ns-3, and applied cryptography, XSS, and buffer overflow exploitation.',
     icon: '⚙️',
   },
   {
-    title: 'Machine Learning & MLOps',
-    desc: 'Building practical ML pipelines, model deployment workflows, and evaluation loops for production prediction systems.',
+    title: 'Machine Learning & NLP',
+    desc: 'Transformer and seq2seq modelling at scale — a 3.8M sentence-pair Bangla correction model — as the technical foundation for language-model security research.',
     icon: '🧠',
-  },
-  {
-    title: 'Natural Language Processing',
-    desc: 'Working on Bangla NLP, including sentence-level spell correction with transformer models and synthetic error generation.',
-    icon: '📝',
-  },
-  {
-    title: 'Cybersecurity',
-    desc: 'Exploring applied security through cryptography, protocol concepts, XSS, buffer overflow, and secure systems coursework.',
-    icon: '🔐',
   },
 ]
 
 const SKILL_GROUPS = [
-  { category: 'Programming Languages', icon: '💻', skills: ['Golang', 'Java', 'Python', 'JavaScript', 'C', 'C++', 'Bash', 'SQL'] },
-  { category: 'Web & Backend', icon: '🧩', skills: ['React', 'Node.js', 'HTML5', 'CSS3', 'System Design', 'Backend Optimization'] },
-  { category: 'ML & Data Science', icon: '📊', skills: ['Scikit-learn', 'Pandas', 'Matplotlib', 'MLOps', 'NLP'] },
-  { category: 'Databases', icon: '🗄️', skills: ['MongoDB', 'Oracle', 'SQL'] },
-  { category: 'Tools & Platforms', icon: '🛠️', skills: ['Docker', 'Git', 'GitHub', 'VS Code', 'IntelliJ', 'Wireshark'] },
-  { category: 'Academic Areas', icon: '🎓', skills: ['Operating Systems', 'Computer Graphics', 'AI Search', 'Cybersecurity'] },
+  { category: 'Security', icon: '🔐', skills: ['Applied Cryptography', 'Elliptic Curve Diffie–Hellman', 'Buffer Overflow', 'XSS', 'Anomaly & Fraud Detection', 'Wireshark', 'Network Analysis'] },
+  { category: 'Systems & Networks', icon: '⚙️', skills: ['xv6 Kernel', 'System Calls', 'MLFQ Scheduling', 'ns-3', 'TCP Congestion Control', 'POSIX Threads', 'Linux'] },
+  { category: 'ML & Data Science', icon: '📊', skills: ['PyTorch', 'Transformers', 'Scikit-learn', 'XGBoost', 'Pandas', 'NumPy', 'MLOps', 'NLP'] },
+  { category: 'Programming Languages', icon: '💻', skills: ['Python', 'Golang', 'C', 'C++', 'Java', 'SQL', 'Bash', 'Assembly'] },
+  { category: 'Infrastructure & Data', icon: '🗄️', skills: ['Docker', 'Kubernetes', 'GCP', 'BigQuery', 'PostgreSQL', 'MongoDB', 'Redis', 'ETL Pipelines'] },
+  { category: 'Academic Areas', icon: '🎓', skills: ['Computer Security', 'Operating Systems', 'Computer Networks', 'Compiler Construction', 'Machine Learning'] },
 ]
 
 const NEWS = {
+  2026: [
+    { month: 'Jun', text: 'Started research with Prof. Lin Tan (Purdue University) on source attribution and institutional bias in frontier LLMs.' },
+    { month: 'Aug', text: 'Applying to CS PhD programs for Fall 2027, focusing on security and privacy.' },
+  ],
   2025: [
-    { month: 'May', text: 'Joined Pathao as Software Engineer I.' },
-    { month: 'May', text: 'Started working on backend optimization, MLOps pipelines, and ride service routing algorithms.' },
+    { month: 'May', text: 'Joined Pathao as Software Engineer I, working on fraud detection, MLOps pipelines, and routing algorithms for production ride and delivery systems.' },
+    { month: 'Mar', text: 'Completed B.Sc. in CSE at BUET (CGPA 3.89/4.00).' },
   ],
   2023: [
     { month: 'Jul', text: 'Recognized on the BUET Merit List for outstanding academic performance.' },
@@ -69,14 +73,23 @@ export default function About() {
             .
           </p>
           <p>
-            I completed my B.Sc. in Computer Science and Engineering from Bangladesh University of Engineering
-            and Technology with a CGPA of <strong className="text-slate-800">3.89/4.00</strong>. My interests
-            span computer systems, cybersecurity, machine learning, natural language processing, and system design.
+            I am applying for <strong className="text-slate-800">CS PhD programs starting Fall 2027</strong>, with
+            research interests in <strong className="text-slate-800">security and privacy</strong> — particularly
+            the security of machine learning systems, trust and provenance in large language models, and
+            learning-based threat detection on real system data.
           </p>
           <p>
-            At Pathao, I work on backend optimization, MLOps pipelines, and ride service routing algorithms.
-            I enjoy solving complex engineering problems and building scalable systems that can hold up in
-            production.
+            I completed my B.Sc. in Computer Science and Engineering from Bangladesh University of Engineering
+            and Technology with a CGPA of <strong className="text-slate-800">3.89/4.00</strong>. I currently work
+            with <strong className="text-slate-800">Prof. Lin Tan</strong>{' '}
+            at Purdue University on source attribution and institutional bias in frontier LLMs — how these models
+            assign credit, and where that attribution can be distorted.
+          </p>
+          <p>
+            At Pathao, I build and operate production systems at scale: fraud detection models over live ride and
+            delivery traffic, large-scale ETL and analytics pipelines, and an MLOps pipeline for ETA prediction
+            serving 100,000+ rides per day. Working on abuse and fraud in a live system is what moved my interest
+            from building systems toward securing them.
           </p>
         </div>
       </section>

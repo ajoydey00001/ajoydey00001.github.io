@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import About from './components/About'
@@ -14,8 +14,27 @@ const TABS = [
   { id: 'cv',           label: 'CV' },
 ]
 
+const VALID_TABS = TABS.map(t => t.id)
+const tabFromHash = () => {
+  const id = window.location.hash.replace('#', '')
+  return VALID_TABS.includes(id) ? id : 'about'
+}
+
 export default function App() {
-  const [activeTab, setActiveTab] = useState('about')
+  const [activeTab, setActiveTab] = useState(tabFromHash)
+
+  // Keep the tab and the URL hash in sync so links like /#publications
+  // open directly on that section, and back/forward navigation works.
+  useEffect(() => {
+    const onHashChange = () => setActiveTab(tabFromHash())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
+
+  const selectTab = id => {
+    setActiveTab(id)
+    window.history.replaceState(null, '', `#${id}`)
+  }
 
   return (
     <div className="min-h-screen bg-white text-slate-800 flex flex-col">
@@ -28,7 +47,7 @@ export default function App() {
           {TABS.map(({ id, label }) => (
             <button
               key={id}
-              onClick={() => setActiveTab(id)}
+              onClick={() => selectTab(id)}
               className={`flex-1 px-4 py-2.5 text-sm font-semibold rounded-lg whitespace-nowrap transition-all duration-200 ${
                 activeTab === id
                   ? 'bg-purple-500 text-white shadow-md'

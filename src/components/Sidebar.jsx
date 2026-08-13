@@ -46,9 +46,9 @@ const INFO_ITEMS = [
       </>
     ),
   },
-  { icon: '🔬', text: 'Backend Systems · MLOps · NLP · Cybersecurity' },
+  { icon: '🔐', text: 'Security & Privacy · LLM Security · ML for Security · Systems' },
+  { icon: '🔬', text: 'Research with Prof. Lin Tan, Purdue University' },
   { icon: '🎓', text: 'Part-time M.Sc. student in CSE at BUET' },
-  { icon: '⚡', text: 'Building scalable systems and solving complex problems' },
   {
     icon: '📧',
     text: (
@@ -77,7 +77,7 @@ export default function Sidebar() {
 
         <div className="space-y-0.5">
           <h2 className="text-base font-bold text-slate-800 leading-snug">Ajoy Dey</h2>
-          <p className="text-blue-600 font-semibold text-sm">Software Engineer 🇧🇩</p>
+          <p className="text-blue-600 font-semibold text-sm">PhD Applicant, Fall 2027 🇧🇩</p>
           <p className="text-slate-500 text-xs mt-1">Software Engineer I · Pathao</p>
           <p className="text-slate-400 text-xs">
             <a href="https://pathao.com/" target="_blank" rel="noreferrer" className="hover:text-blue-500 transition-colors">Pathao</a>

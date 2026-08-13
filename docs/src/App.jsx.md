@@ -3,7 +3,7 @@
 `src/App.jsx`
 
 ## Imports
-- `{ useState }` from `react`
+- `{ useState, useEffect }` from `react`
 - `Navbar` from `./components/Navbar`
 - `Sidebar` from `./components/Sidebar`
 - `About` from `./components/About`
@@ -19,6 +19,14 @@
 ### `App()`
 No props.
 
+## Internal helpers
+### `tabFromHash()`
+No props.
+
+### `onHashChange()`
+No props.
+
 ## Local data constants
 - `TABS`
+- `VALID_TABS`
 

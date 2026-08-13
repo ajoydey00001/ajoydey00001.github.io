@@ -3,6 +3,38 @@ import SectionHeader from './SectionHeader'
 
 const PROJECTS = [
   {
+    title: 'Computer Security',
+    description:
+      'Implemented a hybrid cryptosystem with symmetric encryption keyed by Elliptic Curve Diffie–Hellman exchange, plus working Cross-Site Scripting and buffer overflow attacks against vulnerable targets.',
+    tags: ['Security', 'Cryptography', 'Exploitation', 'C'],
+    link: 'https://github.com/ajoydey00001/CSE-406',
+    course: 'CSE 406',
+  },
+  {
+    title: 'Computer Networks',
+    description:
+      'Built multi-threaded Java socket applications with authentication and file sharing; simulated static and mobile Wi-Fi networks in ns-3; implemented and compared TCP NewReno, Adaptive Reno, and HighSpeed on throughput, fairness, and congestion window; implemented Hamming code, CRC, framing, and random bit-error injection.',
+    tags: ['Networks', 'ns-3', 'TCP', 'Java'],
+    link: 'https://github.com/ajoydey00001/CSE_322',
+    course: 'CSE 322',
+  },
+  {
+    title: 'Operating Systems',
+    description:
+      'Implemented custom xv6 system calls for syscall tracing and usage history; modified the xv6 scheduler into a two-level MLFQ combining lottery and round-robin scheduling with priority boosting; built a POSIX thread IPC simulation using semaphores and reader-writer synchronisation.',
+    tags: ['Operating Systems', 'Xv6', 'Kernel', 'C'],
+    link: 'https://github.com/ajoydey00001/CSE_314',
+    course: 'CSE 314',
+  },
+  {
+    title: 'Compiler Construction',
+    description:
+      'Built a full compiler pipeline for a C-like language: a scoped symbol table using hash tables, a Flex lexical analyser, a YACC/Bison parser with semantic analysis and parse-tree generation, and intermediate code generation with assembly optimisation.',
+    tags: ['Compilers', 'Flex/Bison', 'C++'],
+    link: 'https://github.com/ajoydey00001/CSE_310',
+    course: 'CSE 310',
+  },
+  {
     title: 'Sentence-level Bangla Spell Error Corrector',
     description:
       'Undergraduate thesis using a seq2seq transformer model fine-tuned on 3.8M sentence pairs, with synthetic Bengali error generation and knowledge distillation.',
@@ -51,28 +83,12 @@ const PROJECTS = [
     course: 'AI',
   },
   {
-    title: 'Cybersecurity Projects',
-    description:
-      'Worked on Elliptic Curve Diffie-Hellman key exchange, XSS demonstrations, and buffer overflow attack demonstrations.',
-    tags: ['Cybersecurity', 'Cryptography', 'C'],
-    link: 'https://github.com/ajoydey00001',
-    course: 'Security',
-  },
-  {
     title: 'Computer Graphics Assignments',
     description:
       'OpenGL assignments covering raster graphics pipeline concepts, ray tracing, and illumination.',
     tags: ['OpenGL', 'C++', 'Graphics'],
     link: 'https://github.com/ajoydey00001',
     course: 'Graphics',
-  },
-  {
-    title: 'Operating Systems Assignments',
-    description:
-      'Shell scripting, Xv6 system calls, scheduling, and inter-process communication assignments.',
-    tags: ['Operating Systems', 'Shell', 'Xv6'],
-    link: 'https://github.com/ajoydey00001',
-    course: 'OS',
   },
 ]
 
